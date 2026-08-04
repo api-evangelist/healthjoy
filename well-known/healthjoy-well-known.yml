@@ -1,0 +1,41 @@
+generated: '2026-08-04'
+method: probed
+source: live GET probes of /.well-known/* on every HealthJoy host
+result: none
+note: >-
+  Every /.well-known/ probe missed on every reachable HealthJoy host. This file
+  records the negative result for auditability; NO `WellKnown`, `SecurityTxt`,
+  `APICatalog` or `AgentCard` pointer is wired into apis.yml, because there is
+  nothing to point at. www.healthjoy.com is a Framer-hosted marketing site whose
+  catch-all returns a 10-byte "Not found" body with HTTP 404 (not a 200 HTML
+  shell), so no false positives were possible. api.healthjoy.com resolves and
+  answers, but returns a standard 404 page for every path probed.
+hosts:
+- host: www.healthjoy.com
+  reachable: true
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: api.healthjoy.com
+  reachable: true
+  note: host resolves and serves HTTP; root and every probed path return 404
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: my.healthjoy.com
+  reachable: false
+  note: does not resolve
+- host: app.healthjoy.com
+  reachable: false
+  note: does not resolve
+- host: partners.healthjoy.com
+  reachable: false
+  note: does not resolve (referenced in search results but not live at probe time)

@@ -1,0 +1,70 @@
+generated: '2026-08-04'
+method: searched
+source: https://github.com/healthjoy + https://pypi.org/
+note: >-
+  HealthJoy publishes no client library for a HealthJoy API — it has no public
+  API. The packages below are first-party open-source utility libraries the
+  HealthJoy engineering team maintains for OTHER vendors' services (Firebase
+  Cloud Messaging, Customer.io). They are recorded here because they are
+  genuinely first-party HealthJoy releases (author email @healthjoy.com,
+  published from the healthjoy GitHub org), but they are deliberately NOT wired
+  as `type: SDKs` in apis.yml: an SDK pointer would assert HealthJoy ships a
+  client for its own API, which it does not.
+registries_searched:
+- registry: pypi
+  result: 2 first-party packages found; no `healthjoy` package (404)
+- registry: npm
+  result: no HealthJoy-published packages found (registry search for "healthjoy" empty)
+- registry: maven-central
+  result: none found
+- registry: nuget
+  result: none found
+- registry: pkg.go.dev
+  result: none found (Go repos in the org are Helm-chart/K8s tooling, not published modules)
+- registry: rubygems
+  result: none found
+- registry: packagist
+  result: none found
+- registry: crates.io
+  result: none found
+packages:
+- language: python
+  registry: pypi
+  name: async-firebase
+  version: 6.2.1
+  url: https://pypi.org/project/async-firebase/
+  source: https://github.com/healthjoy/async-firebase
+  install: pip install async-firebase
+  official: true
+  api_client_for: firebase-cloud-messaging
+  first_party_to_healthjoy_api: false
+  license: MIT
+  description: Lightweight asynchronous client for Firebase Cloud Messaging.
+- language: python
+  registry: pypi
+  name: async-customerio
+  version: 2.13.1
+  url: https://pypi.org/project/async-customerio/
+  source: https://github.com/healthjoy/async-customerio
+  install: pip install async-customerio
+  official: true
+  api_client_for: customer.io
+  first_party_to_healthjoy_api: false
+  license: MIT
+  description: Lightweight asynchronous client for interacting with Customer.io.
+x-evidence:
+- fetched: '2026-08-04'
+  url: https://pypi.org/pypi/async-firebase/json
+  http_status: 200
+  detail: author_email oomyshev@healthjoy.com; home_page github.com/healthjoy/async-firebase
+- fetched: '2026-08-04'
+  url: https://pypi.org/pypi/async-customerio/json
+  http_status: 200
+  detail: author_email oomyshev@healthjoy.com; home_page github.com/healthjoy/async-customerio
+- fetched: '2026-08-04'
+  url: https://pypi.org/pypi/healthjoy/json
+  http_status: 404
+- fetched: '2026-08-04'
+  url: https://registry.npmjs.org/-/v1/search?text=healthjoy
+  http_status: 200
+  detail: zero results

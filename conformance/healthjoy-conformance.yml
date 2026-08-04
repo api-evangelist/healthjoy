@@ -1,0 +1,72 @@
+generated: '2026-08-04'
+method: searched
+source: https://www.healthjoy.com/privacy-security
+docs:
+- https://www.healthjoy.com/privacy-security
+- https://www.healthjoy.com/hipaa
+- https://www.healthjoy.com/privacy-policy
+scope: >-
+  HealthJoy publishes no machine-readable API contract, so no API-level standards
+  (OAuth2/OIDC, RFC 9457, JSON:API, pagination, idempotency) can be asserted or
+  derived. What follows is the platform/regulatory compliance posture HealthJoy
+  states publicly on its Privacy & Security page, plus explicit negatives for the
+  healthcare interoperability standards a benefits/navigation platform might be
+  expected to carry.
+standards:
+- id: soc2-type-ii
+  conforms: true
+  evidence: >-
+    "HealthJoy has achieved the Type II SOC 2 attestation — an annual third-party
+    audit that affirms how securely we manage and process your data."
+  source: https://www.healthjoy.com/privacy-security
+- id: hipaa
+  conforms: true
+  evidence: >-
+    "We are compliant with applicable federal privacy laws including the Health
+    Insurance Portability and Accountability Act (HIPAA), which has strict
+    guidelines on how to handle health data." A Notice of HIPAA Privacy Practices
+    is published at /hipaa; "Every employee undergoes extensive HIPAA training."
+  source: https://www.healthjoy.com/hipaa
+- id: pci-dss
+  conforms: partial
+  evidence: >-
+    Not certified directly — payment handling is delegated. "Medical consultation
+    fees are processed through Stripe, a PCI Service Provider Level 1... HealthJoy
+    never stores your financial information on our servers."
+  source: https://www.healthjoy.com/privacy-security
+- id: hitrust-csf
+  conforms: false
+  evidence: No HITRUST certification claim found on any HealthJoy public page (searched 2026-08-04).
+- id: iso-27001
+  conforms: false
+  evidence: No ISO 27001 claim found on any HealthJoy public page (searched 2026-08-04).
+- id: fhir-r4
+  conforms: false
+  evidence: >-
+    No FHIR claim, no FHIR endpoint, no CapabilityStatement. HealthJoy is a
+    benefits-navigation layer, not a clinical data exchange; provider/claims data
+    reaches it via managed eligibility feeds from benefits-admin and TPA partners.
+- id: hl7-v2
+  conforms: false
+  evidence: No HL7 v2 interface documented publicly.
+- id: x12-834
+  conforms: unknown
+  evidence: >-
+    HealthJoy documents eligibility/census data feeds with benefits-administration
+    partners (e.g. Employee Navigator) but publishes no file-format specification,
+    so an X12 834 enrollment feed can neither be confirmed nor ruled out from
+    public sources.
+  source: https://www.healthjoy.com/blog/news/annoucements/employee-navigator
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on www.healthjoy.com and api.healthjoy.com (probed 2026-08-04).
+- id: oauth2
+  conforms: false
+  evidence: No public OAuth surface; /.well-known/oauth-authorization-server and /.well-known/openid-configuration both 404.
+x-evidence:
+- fetched: '2026-08-04'
+  url: https://www.healthjoy.com/privacy-security
+  http_status: 200
+- fetched: '2026-08-04'
+  url: https://www.healthjoy.com/hipaa
+  http_status: 200
