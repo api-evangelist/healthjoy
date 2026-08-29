@@ -13,6 +13,17 @@ description: 'HealthJoy is a Chicago-based employee-benefits engagement, healthc
   or machine-readable API contract; integrations with benefits-administration and TPA
   vendors (e.g. Employee Navigator) are delivered as managed eligibility/census data
   feeds set up by its implementation team rather than as a self-serve API.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://framerusercontent.com/images/V67oySpbzNWmW6h5NeKzMj7v8.png
 url: https://raw.githubusercontent.com/api-evangelist/healthjoy/refs/heads/main/apis.yml
 x-type: company
